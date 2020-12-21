@@ -29,23 +29,20 @@
                                    modelAttribute="club" 
                                    method="post" 
                                    action="${pageContext.request.contextPath}/mvc/club/" >
-                        <fieldest>
-                            <legend>Club Form</legend>
-                            <form:input path="id" readonly="true"/><p />
-                            <form:input path="name" placeholder="請輸入社團名稱"/><p />
-                            <button type="submit" class="pure-button pure-button-primary">Submit</button>
-                            
-                        </fieldest>
-                        </form:form>    
-                            
-                            
-                        
+                            <fieldset>
+                                <legend>Club Form</legend>
+                                <form:input path="id" readonly="true" /><p />
+                                <form:input path="name" placeholder="請輸入社團名稱" /><p />
+                                <form:errors path="*" style="color:red" /><p />
+                                <button type="sumbit" class="pure-button pure-button-primary">Submit</button>
+                            </fieldset>
+                        </form:form>
                     </td>
                     <td valign="top">
                         <!-- 列表 -->
                         <form class="pure-form">
                             <fieldset>
-                                <legend>OOO list</legend>
+                                <legend>Club list</legend>
                                 <table class="pure-table pure-table-bordered" width="100%">
                                     <thead>
                                         <tr>

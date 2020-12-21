@@ -16,13 +16,11 @@ public class CompanyDao {
     private SessionFactory sessionFactory;
     private Session session = null;
     
-   
-    
     //flag:true (提供給查詢), false:提供給新增修改刪除
     private Session getSession() {
-      //  if(flag && session != null) {
-      //      return session;
-      // }
+       //if(session != null) {
+       //   return session;
+       //}
         try {
             session = sessionFactory.getCurrentSession();
         } catch (Exception e) {
@@ -42,10 +40,21 @@ public class CompanyDao {
         Department dept = (Department)getSession().get(Department.class, id);
         return dept;
     }
-    
+    // 新增部門
     @Transactional
     public void saveDept(Department dept) {
         getSession().persist(dept);
+    }
+     // 修改部門
+    @Transactional
+    public void updateDept(Department dept) {
+        getSession().update(dept);
+    }
+     // 刪除部門
+    @Transactional
+    public void deleteDept(Integer id) {
+        Department dept = (Department)getSession().get(Department.class, id);
+        getSession().delete(dept);
     }
     
     // 查詢所有社團資料

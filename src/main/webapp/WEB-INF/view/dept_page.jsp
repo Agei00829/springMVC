@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix = "form" uri="http://www.springframework.org/tags/form" %>
 <!doctype html>
 <html>
     <head>
@@ -20,7 +21,7 @@
             <div id="main">
                 <div class="header">
                     <h1>部門</h1>
-                    <h2></h2>
+                    <h2>${ result }</h2>
                 </div>
                 <table class="pure-table" style="border: none;">
                     <td valign="top">
@@ -29,16 +30,16 @@
                                    modelAttribute="dept" 
                                    method="post" 
                                    action="${pageContext.request.contextPath}/mvc/dept/" >
-                            
-                        <fieldest>
-                            <legend>Dept Form</legend>
-                            <form:input path="id" readonly="true"/><p />
-                            <form:input path="name" placeholder="請輸入部門名稱"/><p />
-                            <button type="submit" class="pure-button pure-button-primary">Submit</button>
-                            
-                        </fieldest>
+                            <fieldset>
+                                <legend>Dept From</legend>
+                                <form:input path="id" readonly="true" /><p />
+                                <form:input path="name" placeholder="請輸入部門名稱" /><p />
+                                <input type="text" id="_method" name="_method" readonly="true" value="${ _method }" /><p />
+                                <form:errors path="name" style="color:red" /><p />
+                                <form:errors path="*" style="color:red" /><p />
+                                <button type="sumbit" class="pure-button pure-button-primary">Submit</button>
+                            </fieldset>
                         </form:form>
-                    
                         
                     </td>
                     <td valign="top">
@@ -53,6 +54,7 @@
                                             <th>名稱</th>
                                             <th>人數</th>
                                             <th>修改</th>
+                                            <th>刪除</th>
                                         </tr>
                                     </thead>
 
@@ -63,6 +65,7 @@
                                                 <td>${ dept.name }</td>
                                                 <td>${ fn:length(dept.employees) }</td>
                                                 <td><a href="${pageContext.request.contextPath}/mvc/dept/${ dept.id }">修改</a></td>
+                                                <td><a href="${pageContext.request.contextPath}/mvc/dept/delete/${ dept.id }">刪除</a></td>
                                             </tr>
                                         </c:forEach>
                                     </tbody>

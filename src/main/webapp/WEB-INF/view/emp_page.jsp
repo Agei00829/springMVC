@@ -34,6 +34,7 @@
                                 <form:input path="id" readonly="true" /><p />
                                 <form:input path="name" placeholder="請輸入員工姓名" /><p />
                                 <form:input path="salary.money" placeholder="請輸入薪資" /><p />
+                                <form:errors path="salary.money" style="color:red" /><p />
                                 <form:select path="department.id">
                                     <form:option value="0" label="請選擇" />
                                     <form:options items="${ dept_list}" itemValue="id" itemLabel="name" />
@@ -47,6 +48,7 @@
                                            </c:forEach>
                                     > ${ club.name }
                                 </c:forEach><p />
+                                <form:errors path="name" style="color:red" /><p />
                                 <button type="sumbit" class="pure-button pure-button-primary">Submit</button>
                             </fieldset>
                         </form:form>
