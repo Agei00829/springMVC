@@ -154,6 +154,14 @@
             <version>${hibernate.version}</version>
         </dependency>
         
+        <!-- Google api -->
+        <dependency>
+            <groupId>com.google.api-client</groupId>
+            <artifactId>google-api-client</artifactId>
+            <version>1.30.10</version>
+        </dependency>
+
+        
     </dependencies>
 
     <build>

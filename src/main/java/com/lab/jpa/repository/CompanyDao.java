@@ -18,9 +18,10 @@ public class CompanyDao {
     
     //flag:true (提供給查詢), false:提供給新增修改刪除
     private Session getSession() {
-       //if(session != null) {
-       //   return session;
-       //}
+       if(session != null) {
+         session.close();
+         session = null;
+       }
         try {
             session = sessionFactory.getCurrentSession();
         } catch (Exception e) {
